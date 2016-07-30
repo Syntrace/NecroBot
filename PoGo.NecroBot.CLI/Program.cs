@@ -19,7 +19,6 @@ namespace PoGo.NecroBot.CLI
     {
         private static void Main(string[] args)
         {
-            Thread.sleep(10000);
             var culture = CultureInfo.CreateSpecificCulture("en-US");
 
             CultureInfo.DefaultThreadCurrentCulture = culture;
