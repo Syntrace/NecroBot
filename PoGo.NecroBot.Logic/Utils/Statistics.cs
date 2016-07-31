@@ -33,7 +33,7 @@ namespace PoGo.NecroBot.Logic.Utils
         public void Dirty(Inventory inventory)
         {
             _exportStats = GetCurrentInfo(inventory);
-            
+            DirtyEvent?.Invoke();
         }
 
         public void Dirty()
