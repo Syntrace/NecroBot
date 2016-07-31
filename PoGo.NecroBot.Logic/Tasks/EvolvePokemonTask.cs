@@ -26,6 +26,11 @@ namespace PoGo.NecroBot.Logic.Tasks
 
             if (pokemonToEvolve.Any())
             {
+                session.EventDispatcher.Send(new UpdateEvolvableInfoEvent
+                {
+                    EvolvablePokemon = pokemonToEvolve.Count
+                });
+
                 var inventoryContent = await session.Inventory.GetItems();
 
                 var luckyEggs = inventoryContent.Where(p => p.ItemId == ItemId.ItemLuckyEgg);

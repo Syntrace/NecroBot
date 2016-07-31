@@ -75,8 +75,15 @@ namespace PoGo.NecroBot.Logic
                 _stats.TotalExperience += evt.Exp;
                 _stats.TotalPokemons++;
                 _stats.TotalStardust = evt.Stardust;
+                
                 _stats.Dirty(session.Inventory);
             }
+        }
+
+        public void HandleEvent(UpdateEvolvableInfoEvent evt, ISession session)
+        {
+            _stats.EvolvablePokemon = evt.EvolvablePokemon;
+            _stats.Dirty(session.Inventory);
         }
 
         public void HandleEvent(NoPokeballEvent evt, ISession session)
