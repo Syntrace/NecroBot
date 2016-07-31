@@ -33,6 +33,11 @@ namespace PoGo.NecroBot.Logic.Utils
         public void Dirty(Inventory inventory)
         {
             _exportStats = GetCurrentInfo(inventory);
+            
+        }
+
+        public void Dirty()
+        {
             DirtyEvent?.Invoke();
         }
 
@@ -83,8 +88,7 @@ namespace PoGo.NecroBot.Logic.Utils
             var xpStats = string.Format(xpTemplate, _exportStats.Level, _exportStats.HoursUntilLvl,
                 _exportStats.MinutesUntilLevel, _exportStats.CurrentXp, _exportStats.LevelupXp);
             return string.Format(template, _playerName, FormatRuntime(), xpStats, TotalExperience/GetRuntime(),
-                TotalPokemons/GetRuntime(),
-                TotalStardust, TotalPokemonsTransfered, TotalItemsRemoved, EvolvablePokemon);
+                TotalPokemons/GetRuntime(), TotalStardust, TotalPokemonsTransfered, TotalItemsRemoved, EvolvablePokemon);
         }
 
         public static int GetXpDiff(int level)

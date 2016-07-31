@@ -287,7 +287,7 @@ namespace PoGo.NecroBot.Logic.Common
             new KeyValuePair<TranslationString, string>(TranslationString.WebSocketFailStart,
                 "Failed to start WebSocketServer on port : {0}"),
             new KeyValuePair<TranslationString, string>(TranslationString.StatsTemplateString,
-                "{0} - Runtime {1} - Lvl: {2} | EXP/H: {3:n0} | P/H: {4:n0} | Stardust: {5:n0} | Transfered: {6:n0} | Recycled: {7:n0} | Eveolvable: {8}"),
+                "{0} - Runtime {1} - Lvl: {2} | EXP/H: {3:n0} | P/H: {4:n0} | Stardust: {5:n0} | Transfered: {6:n0} | Recycled: {7:n0} | Evolvable: {8}"),
             new KeyValuePair<TranslationString, string>(TranslationString.StatsXpTemplateString,
                 "{0} (Advance in {1}h {2}m | {3:n0}/{4:n0} XP)"),
             new KeyValuePair<TranslationString, string>(TranslationString.RequireInputText,

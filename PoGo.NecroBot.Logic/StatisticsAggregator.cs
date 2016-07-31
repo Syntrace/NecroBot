@@ -83,7 +83,7 @@ namespace PoGo.NecroBot.Logic
         public void HandleEvent(UpdateEvolvableInfoEvent evt, ISession session)
         {
             _stats.EvolvablePokemon = evt.EvolvablePokemon;
-            _stats.Dirty(session.Inventory);
+            _stats.Dirty();
         }
 
         public void HandleEvent(NoPokeballEvent evt, ISession session)

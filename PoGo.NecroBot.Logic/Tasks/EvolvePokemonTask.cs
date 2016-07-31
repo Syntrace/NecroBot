@@ -24,13 +24,13 @@ namespace PoGo.NecroBot.Logic.Tasks
             var pokemonToEvolveTask = await session.Inventory.GetPokemonToEvolve(session.LogicSettings.PokemonsToEvolve);
             var pokemonToEvolve = pokemonToEvolveTask.ToList();
 
+            session.EventDispatcher.Send(new UpdateEvolvableInfoEvent
+            {
+                EvolvablePokemon = pokemonToEvolve.Count
+            });
+
             if (pokemonToEvolve.Any())
             {
-                session.EventDispatcher.Send(new UpdateEvolvableInfoEvent
-                {
-                    EvolvablePokemon = pokemonToEvolve.Count
-                });
-
                 var inventoryContent = await session.Inventory.GetItems();
 
                 var luckyEggs = inventoryContent.Where(p => p.ItemId == ItemId.ItemLuckyEgg);
@@ -61,6 +61,10 @@ namespace PoGo.NecroBot.Logic.Tasks
                         Id = pokemon.PokemonId,
                         Exp = evolveResponse.ExperienceAwarded,
                         Result = evolveResponse.Result
+                    });
+                    session.EventDispatcher.Send(new UpdateEvolvableInfoEvent
+                    {
+                        EvolvablePokemon = pokemonToEvolve.Count
                     });
                 }
             }
